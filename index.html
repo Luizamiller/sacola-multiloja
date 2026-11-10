@@ -1,0 +1,359 @@
+<title>Sacola Multi-loja</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: estudo de caso em coluna de leitura à esquerda, protótipo de celular fixo à direita; empilha no celular (protótipo primeiro) */
+:root{
+  --bg:#f6f3f1; --paper:#fffdfb; --ink:#231a1c; --muted:#6f6264; --line:#e6dcd8;
+  --pepper:#c8323f; --pepper-soft:#fbe7e7; --basil:#2f7d5b; --basil-soft:#e2f1e9; --mustard:#a86a00; --mustard-soft:#fbf0d9;
+  --phone:#1c1517; --screen:#fffdfb; --chip:#f1ebe8;
+  --display:"Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#161113; --paper:#1f181a; --ink:#f3ebe8; --muted:#b4a6a5; --line:#3a2f31;
+  --pepper:#ef6a72; --pepper-soft:#3b1d21; --basil:#6cc79c; --basil-soft:#183026; --mustard:#e2a83e; --mustard-soft:#33270f;
+  --phone:#000; --screen:#1f181a; --chip:#2c2325; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161113; --paper:#1f181a; --ink:#f3ebe8; --muted:#b4a6a5; --line:#3a2f31;
+  --pepper:#ef6a72; --pepper-soft:#3b1d21; --basil:#6cc79c; --basil-soft:#183026; --mustard:#e2a83e; --mustard-soft:#33270f;
+  --phone:#000; --screen:#1f181a; --chip:#2c2325; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:start}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:32px}.proto{order:-1;position:static!important}}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pepper)}
+h1{font-size:clamp(34px,5vw,54px);font-weight:800;letter-spacing:-.02em;margin-top:10px}
+h1 em{font-style:normal;color:var(--pepper)}
+.lede{font-size:19px;color:var(--muted);max-width:60ch;margin:16px 0 0}
+.case{display:grid;gap:44px;min-width:0}
+section{display:grid;gap:14px;max-width:66ch}
+h2{font-size:26px;font-weight:700}
+p{margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:13px;padding:4px 10px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.compare{grid-template-columns:1fr}}
+.compare div{padding:16px;border-radius:12px;border:1px solid var(--line);background:var(--paper)}
+.compare h3{font-size:16px;margin-bottom:6px}
+.compare .now h3{color:var(--muted)} .compare .new h3{color:var(--basil)}
+.compare ul,.plain{margin:0;padding-left:18px;display:grid;gap:4px}
+.rules{border-collapse:collapse;width:100%;font-size:15px}
+.tablebox{overflow-x:auto}
+.rules th,.rules td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.rules th{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.rules td:first-child{font-weight:600;white-space:nowrap}
+.formula{font-family:var(--mono);font-size:14px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.metric{padding:14px;border-top:3px solid var(--pepper);background:var(--paper)}
+.metric b{display:block;font-family:var(--display);font-size:17px}
+.metric span{font-size:14px;color:var(--muted)}
+.foot{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+
+/* ===== Protótipo ===== */
+.proto{position:sticky;top:max(24px,env(safe-area-inset-top,0px));display:grid;gap:10px;justify-items:center}
+.hint{font-size:13px;color:var(--muted);text-align:center;max-width:34ch}
+.phone{width:100%;max-width:370px;height:720px;background:var(--phone);border-radius:42px;padding:10px;box-shadow:0 30px 60px -30px rgba(40,10,15,.45)}
+.screen{height:100%;background:var(--screen);border-radius:33px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.bar{padding:16px 18px 10px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line)}
+.bar h3{font-size:20px;font-weight:800;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.back{border:0;background:var(--chip);color:var(--ink);width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer}
+.view{flex:1;overflow-y:auto;padding:14px 16px 18px;display:grid;gap:12px;align-content:start}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);background:var(--screen)}
+.tab{border:0;background:none;padding:10px 0 14px;font:600 12px var(--body);color:var(--muted);cursor:pointer;position:relative;display:grid;justify-items:center;gap:2px}
+.tab svg{width:22px;height:22px}
+.tab[aria-current="page"]{color:var(--pepper)}
+.badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--pepper);color:#fff;font-size:11px;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 5px}
+button{font-family:var(--body)}
+:focus-visible{outline:2px solid var(--pepper);outline-offset:2px}
+.store{display:flex;gap:12px;align-items:center;padding:10px;border-radius:14px;border:1px solid var(--line);background:var(--paper);cursor:pointer;text-align:left;color:var(--ink);width:100%}
+.logo{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font:800 18px var(--display);color:#fff;flex:none}
+.store b{display:block;font-size:15px}
+.store small,.sub{font-size:12.5px;color:var(--muted)}
+.item{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.item .txt{flex:1;min-width:0}
+.item b{font-size:14.5px;display:block}
+.price{font-variant-numeric:tabular-nums;font-weight:600;font-size:14px}
+.ic{border:0;background:var(--chip);color:var(--ink);width:34px;height:34px;border-radius:50%;cursor:pointer;display:grid;place-items:center;flex:none}
+.ic svg{width:18px;height:18px}
+.ic.on{background:var(--pepper-soft);color:var(--pepper)}
+.add{background:var(--pepper);color:#fff}
+.group{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper)}
+.ghead{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--chip)}
+.ghead .logo{width:32px;height:32px;font-size:13px;border-radius:9px}
+.ghead b{font-size:14px;flex:1}
+.gbody{padding:2px 12px 8px}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:var(--screen);color:var(--ink);cursor:pointer;font-weight:700}
+.qty span{min-width:16px;text-align:center;font-variant-numeric:tabular-nums}
+.warn{font-size:12.5px;color:var(--mustard);background:var(--mustard-soft);padding:6px 10px;border-radius:8px;margin-top:6px}
+.cluster{border:1.5px dashed var(--basil);border-radius:18px;padding:10px;display:grid;gap:10px}
+.cluster.split{border-color:var(--line)}
+.ctop{display:flex;align-items:center;gap:8px;font-size:13px}
+.ctop .pill{font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--basil-soft);color:var(--basil)}
+.cluster.split .pill{background:var(--chip);color:var(--muted)}
+.switch{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);cursor:pointer}
+.switch input{accent-color:var(--basil);width:16px;height:16px}
+.solo .ctop .pill{background:var(--chip);color:var(--muted)}
+.sum{display:grid;gap:6px;padding:12px;border-radius:14px;background:var(--chip);font-size:14px}
+.sum div{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.sum .save{color:var(--basil);font-weight:600}
+.sum .total{font-weight:800;font-size:17px;font-family:var(--display);border-top:1px solid var(--line);padding-top:8px}
+.cta{border:0;background:var(--pepper);color:#fff;font:700 15px var(--body);padding:14px;border-radius:14px;cursor:pointer;width:100%}
+.ghost{border:1px solid var(--line);background:var(--screen);color:var(--ink);font:600 14px var(--body);padding:11px;border-radius:12px;cursor:pointer;width:100%}
+.empty{text-align:center;color:var(--muted);padding:40px 10px;font-size:14px}
+.list{padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--paper);display:grid;gap:8px}
+.list b{font-family:var(--display);font-size:16px}
+.ai{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:12px;background:var(--basil-soft);color:var(--ink);font-size:13.5px}
+.ai svg{width:18px;height:18px;color:var(--basil);flex:none;margin-top:2px}
+.toast{position:absolute;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:var(--screen);font-size:13px;padding:8px 14px;border-radius:999px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+.order{display:flex;gap:10px;align-items:center;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--paper)}
+.order .eta{margin-left:auto;font:500 12px var(--mono);color:var(--basil);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+</style>
+
+<div class="wrap">
+  <main class="case">
+    <header>
+      <div class="eyebrow">Estudo de produto · App de delivery</div>
+      <h1>Uma sacola, <em>várias lojas</em>.</h1>
+      <p class="lede">Hoje a sacola do app aceita itens de uma loja por vez. Quem quer o almoço de um restaurante e a sobremesa de outro precisa escolher, esvaziar a sacola ou fazer dois pedidos do zero. Esta proposta junta tudo num só lugar e ainda lembra o que você gosta de pedir.</p>
+      <div class="meta"><span class="chip">Luiza Miller</span><span class="chip">Protótipo navegável</span><span class="chip">Nov 2026</span><span class="chip">HTML + JS puro</span></div>
+    </header>
+
+    <section>
+      <h2>O problema</h2>
+      <p>Ao adicionar um item de outra loja, o usuário recebe um aviso e tem duas saídas: descartar o que já escolheu ou desistir do novo item. Os dois caminhos geram atrito.</p>
+      <ul class="plain">
+        <li>Pedidos combinados (refeição + farmácia, almoço + açaí) viram dois checkouts separados.</li>
+        <li>Itens escolhidos com calma são apagados por um toque, sem como recuperar.</li>
+        <li>Não existe lugar para guardar pratos de lojas diferentes que a pessoa pede sempre.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>A proposta</h2>
+      <div class="compare">
+        <div class="now"><h3>Como é hoje</h3><ul><li>1 loja por sacola</li><li>Trocar de loja apaga a sacola</li><li>Favoritos só de restaurantes</li></ul></div>
+        <div class="new"><h3>Como fica</h3><ul><li>Sacola agrupada por loja</li><li>Entrega combinada para lojas próximas</li><li>Pratos favoritos e listas salvas</li></ul></div>
+      </div>
+      <p>O pagamento é único, mas cada loja recebe o seu próprio pedido. Para o restaurante nada muda na operação: ele continua vendo só os itens dele.</p>
+    </section>
+
+    <section>
+      <h2>Regras de negócio</h2>
+      <div class="tablebox"><table class="rules">
+        <thead><tr><th>Regra</th><th>Comportamento</th></tr></thead>
+        <tbody>
+          <tr><td>Limite</td><td>Até 4 lojas por sacola, para manter a entrega viável.</td></tr>
+          <tr><td>Pedido mínimo</td><td>Vale por loja. A loja abaixo do mínimo fica sinalizada e o checkout só libera quando ela é ajustada ou removida.</td></tr>
+          <tr><td>Agrupamento</td><td>Lojas a até 2 km umas das outras formam um grupo que pode sair na mesma entrega.</td></tr>
+          <tr><td>Taxa combinada</td><td>Maior taxa do grupo + R$ 1,99 por parada extra.</td></tr>
+          <tr><td>Prazo combinado</td><td>Maior prazo do grupo + 5 min por parada extra. O usuário pode separar o grupo se tiver pressa.</td></tr>
+          <tr><td>Cupom</td><td>Aplicado por loja, respeitando as regras de cada cupom.</td></tr>
+          <tr><td>Cancelamento</td><td>Se uma loja recusar, só aquele pedido é estornado; os outros seguem.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="formula">taxa_grupo = max(taxas) + 1,99 × (n_lojas − 1)<br>prazo_grupo = max(prazos) + 5 × (n_lojas − 1)</div>
+    </section>
+
+    <section>
+      <h2>Favoritos e listas</h2>
+      <p>O coração passa a funcionar em pratos, e não só em restaurantes. A partir da sacola dá para salvar uma lista com nome (por exemplo, "Sexta de sempre") e repetir o pedido inteiro com um toque, mesmo que ele venha de três lojas.</p>
+    </section>
+
+    <section>
+      <h2>Camada de IA</h2>
+      <p>A sacola multi-loja abre espaço para um assistente que monta pedidos a partir de uma frase. Com o histórico e os favoritos do usuário, um modelo de linguagem interpreta "jantar para 3 com sobremesa, sem gastar mais de 120" e devolve uma sacola pronta, já agrupada por proximidade.</p>
+      <ul class="plain">
+        <li>Sugestão de agrupamento: avisar quando duas lojas da sacola podem sair juntas.</li>
+        <li>Complemento inteligente: sugerir uma loja próxima para o que falta (bebida, sobremesa).</li>
+        <li>No protótipo, as sugestões são regras simples; numa versão real, viriam de um LLM com acesso ao cardápio e à geolocalização.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Como medir</h2>
+      <div class="metrics">
+        <div class="metric"><b>Abandono ao trocar de loja</b><span>Deve cair com o fim do aviso de sacola única.</span></div>
+        <div class="metric"><b>Ticket médio</b><span>Pedidos combinados tendem a somar mais itens.</span></div>
+        <div class="metric"><b>Uso de entrega combinada</b><span>Mostra se a economia de taxa convence.</span></div>
+        <div class="metric"><b>Recompra por lista</b><span>Frequência de pedidos repetidos via favoritos.</span></div>
+      </div>
+      <p>Riscos a acompanhar: prazo maior nas entregas combinadas, cancelamentos parciais e complexidade para o entregador.</p>
+    </section>
+
+    <p class="foot">Projeto conceitual de portfólio, sem vínculo com nenhuma empresa. Lojas, preços e distâncias são fictícios.</p>
+  </main>
+
+  <aside class="proto" aria-label="Protótipo">
+    <div class="phone"><div class="screen">
+      <div class="bar" id="bar"></div>
+      <div class="view" id="view"></div>
+      <nav class="tabs" id="tabs"></nav>
+      <div class="toast" id="toast" role="status"></div>
+    </div></div>
+    <p class="hint">Protótipo clicável: adicione itens de lojas diferentes, favorite pratos e veja a entrega combinada.</p>
+  </aside>
+</div>
+
+<script>
+const STORES=[
+ {id:'brasa',name:'Brasa Burger',cat:'Hambúrguer',fee:6.99,eta:35,min:25,x:0,y:0,color:'#b8452f',ab:'BB'},
+ {id:'mar',name:'Mar & Arroz',cat:'Poke · Japonesa',fee:4.99,eta:30,min:30,x:1.0,y:0.8,color:'#2e6f8e',ab:'MA'},
+ {id:'bem',name:'Farmácia Bem Viver',cat:'Farmácia',fee:3.99,eta:20,min:15,x:0.5,y:-0.6,color:'#2f7d5b',ab:'BV'},
+ {id:'acai',name:'Açaí da Praça',cat:'Açaí · Sobremesas',fee:5.49,eta:25,min:20,x:3.6,y:2.4,color:'#6b3a8c',ab:'AP'}
+];
+const ITEMS=[
+ {id:'b1',s:'brasa',n:'Smash duplo',d:'2 carnes, cheddar, cebola caramelizada',p:32.9},
+ {id:'b2',s:'brasa',n:'Batata rústica',d:'Porção média com páprica',p:16.9},
+ {id:'b3',s:'brasa',n:'Brasa veggie',d:'Grão-de-bico, picles, maionese verde',p:29.9},
+ {id:'m1',s:'mar',n:'Poke salmão',d:'Arroz, salmão, manga, gergelim',p:42.9},
+ {id:'m2',s:'mar',n:'Poke tofu',d:'Arroz integral, tofu grelhado, edamame',p:34.9},
+ {id:'m3',s:'mar',n:'Missoshiro',d:'300 ml',p:12.9},
+ {id:'v1',s:'bem',n:'Protetor solar FPS 50',d:'Frasco 120 ml',p:54.9},
+ {id:'v2',s:'bem',n:'Escova dental macia',d:'Kit com 2',p:13.9},
+ {id:'v3',s:'bem',n:'Soro fisiológico',d:'500 ml',p:8.5},
+ {id:'a1',s:'acai',n:'Açaí 500 ml',d:'Banana, granola e leite em pó',p:24.9},
+ {id:'a2',s:'acai',n:'Creme de cupuaçu',d:'300 ml',p:19.9},
+ {id:'a3',s:'acai',n:'Sorvete de tapioca',d:'Pote 400 ml',p:22.9}
+];
+const S=Object.fromEntries(STORES.map(s=>[s.id,s])), I=Object.fromEntries(ITEMS.map(i=>[i.id,i]));
+const R=v=>'R$ '+v.toFixed(2).replace('.',',');
+let st={tab:'sacola',store:null,done:null,
+ cart:{b1:1,b2:1,m1:1,v2:1,v3:1},
+ favs:new Set(['b1','m2','a1']),
+ lists:[{name:'Sexta de sempre',items:{b1:2,b2:1,a1:2}}],
+ split:{}};
+
+const ICON={
+ home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
+ heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
+ heartF:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
+ bag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+ plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>',
+ spark:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>'
+};
+const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+const qtyTotal=()=>Object.values(st.cart).reduce((a,b)=>a+b,0);
+function byStore(cart){const g={};for(const[id,q]of Object.entries(cart)){if(q<1)continue;(g[I[id].s]??=[]).push([id,q]);}return g;}
+function clusters(ids){ // componentes conectados com distância <= 2 km
+  const seen=new Set(),out=[];
+  for(const id of ids){if(seen.has(id))continue;const c=[],q=[id];seen.add(id);
+    while(q.length){const a=q.shift();c.push(a);for(const b of ids)if(!seen.has(b)&&dist(S[a],S[b])<=2){seen.add(b);q.push(b);}}
+    out.push(c);}
+  return out;
+}
+function plan(){
+  const g=byStore(st.cart),ids=Object.keys(g);
+  const cl=clusters(ids).map(c=>{
+    const key=c.slice().sort().join('+');
+    const combined=c.length>1&&!st.split[key];
+    const sep=c.reduce((a,id)=>a+S[id].fee,0);
+    const fee=combined?Math.max(...c.map(id=>S[id].fee))+1.99*(c.length-1):sep;
+    const eta=combined?Math.max(...c.map(id=>S[id].eta))+5*(c.length-1):Math.max(...c.map(id=>S[id].eta));
+    return{c,key,combined,fee,sep,eta};
+  });
+  const sub=Object.fromEntries(ids.map(id=>[id,g[id].reduce((a,[i,q])=>a+I[i].p*q,0)]));
+  const items=Object.values(sub).reduce((a,b)=>a+b,0);
+  const fees=cl.reduce((a,x)=>a+x.fee,0), sepFees=cl.reduce((a,x)=>a+x.sep,0);
+  const blocked=ids.filter(id=>sub[id]<S[id].min);
+  return{g,ids,cl,sub,items,fees,save:sepFees-fees,blocked,trips:cl.reduce((a,x)=>a+(x.combined?1:x.c.length),0)};
+}
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),1600);}
+function add(id,q=1){
+  const g=byStore(st.cart);
+  if(!g[I[id].s]&&Object.keys(g).length>=4){toast('Limite de 4 lojas por sacola');return;}
+  st.cart[id]=(st.cart[id]||0)+q;toast(`${I[id].n} na sacola`);render();
+}
+function setQ(id,d){st.cart[id]=(st.cart[id]||0)+d;if(st.cart[id]<1)delete st.cart[id];render();}
+function fav(id){st.favs.has(id)?st.favs.delete(id):st.favs.add(id);toast(st.favs.has(id)?'Salvo nos favoritos':'Removido dos favoritos');render();}
+
+function logo(s){return`<div class="logo" style="background:${s.color}">${s.ab}</div>`}
+function itemRow(it,mode){
+  const f=st.favs.has(it.id);
+  const favBtn=`<button class="ic ${f?'on':''}" data-fav="${it.id}" aria-label="${f?'Remover dos':'Salvar nos'} favoritos" aria-pressed="${f}">${f?ICON.heartF:ICON.heart}</button>`;
+  if(mode==='cart'){const q=st.cart[it.id];
+    return`<div class="item"><div class="txt"><b>${it.n}</b><span class="price">${R(it.p*q)}</span></div>
+    <div class="qty"><button data-q="${it.id}" data-d="-1" aria-label="Menos">−</button><span>${q}</span><button data-q="${it.id}" data-d="1" aria-label="Mais">+</button></div></div>`;}
+  return`<div class="item"><div class="txt"><b>${it.n}</b><span class="sub">${mode==='fav'?S[it.s].name+' · ':''}${it.d}</span><div class="price">${R(it.p)}</div></div>${favBtn}<button class="ic add" data-add="${it.id}" aria-label="Adicionar ${it.n}">${ICON.plus}</button></div>`;
+}
+
+function vHome(){
+  if(st.store){const s=S[st.store];
+    bar(`<button class="back" data-back aria-label="Voltar">‹</button><h3>${s.name}</h3>`);
+    return`<div class="sub">${s.cat} · ${s.eta} min · entrega ${R(s.fee)} · mínimo ${R(s.min)}</div>`+ITEMS.filter(i=>i.s===s.id).map(i=>itemRow(i,'menu')).join('');}
+  bar('<h3>Lojas perto de você</h3>');
+  const p=plan();
+  const tip=p.ids.length?`<div class="ai">${ICON.spark}<span>Sua sacola tem ${p.ids.length} ${p.ids.length>1?'lojas':'loja'}. Pode continuar adicionando de outras, até 4.</span></div>`:'';
+  return tip+STORES.map(s=>`<button class="store" data-store="${s.id}">${logo(s)}<span><b>${s.name}</b><small>${s.cat} · ${s.eta} min · ${R(s.fee)}</small></span></button>`).join('');
+}
+function vFav(){
+  bar('<h3>Favoritos</h3>');
+  const items=[...st.favs].map(id=>I[id]);
+  const lists=st.lists.map((l,i)=>{const stores=[...new Set(Object.keys(l.items).map(id=>S[I[id].s].name))];
+    const tot=Object.entries(l.items).reduce((a,[id,q])=>a+I[id].p*q,0);
+    return`<div class="list"><b>${l.name}</b><span class="sub">${Object.values(l.items).reduce((a,b)=>a+b,0)} itens de ${stores.join(', ')} · ${R(tot)}</span><button class="ghost" data-list="${i}">Pedir de novo</button></div>`;}).join('');
+  return`<div class="eyebrow">Listas salvas</div>${lists||'<p class="sub">Salve uma sacola como lista para repetir o pedido.</p>'}
+  <div class="eyebrow" style="margin-top:6px">Pratos favoritos</div>${items.length?items.map(i=>itemRow(i,'fav')).join(''):'<p class="sub">Toque no coração de um prato para guardar aqui.</p>'}
+  ${items.length?`<button class="ghost" data-allfav>Adicionar todos à sacola</button>`:''}`;
+}
+function vBag(){
+  if(st.done){bar('<h3>Pedido confirmado</h3>');
+    return`<div class="ai">${ICON.spark}<span>Um pagamento, ${st.done.orders.length} pedidos. Cada loja recebe só os itens dela.</span></div>`+
+    st.done.orders.map(o=>`<div class="order">${logo(S[o.s])}<div><b>${S[o.s].name}</b><div class="sub">${o.mode}</div></div><span class="eta">~${o.eta} min</span></div>`).join('')+
+    `<div class="sum"><div class="total"><span>Total pago</span><span>${R(st.done.total)}</span></div></div><button class="ghost" data-new>Fazer outro pedido</button>`;}
+  bar('<h3>Sacola</h3>');
+  const p=plan();
+  if(!p.ids.length)return`<div class="empty">Sua sacola está vazia.<br>Adicione itens de quantas lojas quiser.</div><button class="ghost" data-go="inicio">Ver lojas</button>`;
+  const near=p.cl.find(x=>x.c.length>1&&!x.combined);
+  let html='';
+  if(p.cl.some(x=>x.combined))html+=`<div class="ai">${ICON.spark}<span>${p.cl.filter(x=>x.combined).map(x=>x.c.map(id=>S[id].name).join(' e ')).join('; ')} ficam a menos de 2 km. Vão na mesma entrega e você economiza ${R(p.save)}.</span></div>`;
+  else if(near)html+=`<div class="ai">${ICON.spark}<span>Dá para juntar ${near.c.map(id=>S[id].name).join(' e ')} numa entrega só.</span></div>`;
+  html+=p.cl.map(x=>{
+    const groups=x.c.map(id=>{const s=S[id],below=p.sub[id]<s.min;
+      return`<div class="group"><div class="ghead">${logo(s)}<b>${s.name}</b><span class="price">${R(p.sub[id])}</span></div><div class="gbody">${p.g[id].map(([iid])=>itemRow(I[iid],'cart')).join('')}
+      ${below?`<div class="warn">Faltam ${R(s.min-p.sub[id])} para o pedido mínimo desta loja.</div>`:''}</div></div>`;}).join('');
+    if(x.c.length===1)return`<div class="cluster split solo"><div class="ctop"><span class="pill">Entrega própria</span><span class="sub">${R(x.fee)} · ${x.eta} min</span></div>${groups}</div>`;
+    return`<div class="cluster ${x.combined?'':'split'}"><div class="ctop"><span class="pill">${x.combined?'Entrega combinada':'Entregas separadas'}</span><span class="sub">${R(x.fee)} · ${x.eta} min</span>
+      <label class="switch"><input type="checkbox" id="sw-${x.key}" data-split="${x.key}" ${x.combined?'checked':''}>Juntar</label></div>${groups}</div>`;
+  }).join('');
+  html+=`<div class="sum"><div><span>Itens</span><span>${R(p.items)}</span></div><div><span>Entrega (${p.trips} ${p.trips>1?'viagens':'viagem'})</span><span>${R(p.fees)}</span></div>
+   ${p.save>0.004?`<div class="save"><span>Economia por combinar</span><span>−${R(p.save)}</span></div>`:''}
+   <div class="total"><span>Total</span><span>${R(p.items+p.fees)}</span></div></div>
+   <button class="cta" data-checkout ${p.blocked.length?'disabled style="opacity:.5;cursor:not-allowed"':''}>${p.blocked.length?'Ajuste o pedido mínimo':`Pagar ${p.ids.length} ${p.ids.length>1?'pedidos':'pedido'} de uma vez`}</button>
+   <button class="ghost" data-savelist>Salvar sacola como lista</button>`;
+  return html;
+}
+function bar(h){document.getElementById('bar').innerHTML=h}
+function render(){
+  const v=document.getElementById('view');
+  v.innerHTML=st.tab==='inicio'?vHome():st.tab==='favoritos'?vFav():vBag();
+  const n=qtyTotal();
+  document.getElementById('tabs').innerHTML=[['inicio','Início','home'],['favoritos','Favoritos','heart'],['sacola','Sacola','bag']].map(([k,l,ic])=>
+    `<button class="tab" data-tab="${k}" ${st.tab===k?'aria-current="page"':''}>${ICON[ic]}${l}${k==='sacola'&&n?`<span class="badge">${n}</span>`:''}</button>`).join('');
+}
+document.querySelector('.screen').addEventListener('click',e=>{
+  const t=e.target.closest('button,input');if(!t)return;const d=t.dataset;
+  if(d.tab){st.tab=d.tab;st.store=null;if(d.tab!=='sacola')st.done=null;render();document.getElementById('view').scrollTop=0;}
+  else if(d.store){st.store=d.store;render();}
+  else if('back'in d){st.store=null;render();}
+  else if(d.add)add(d.add);
+  else if(d.fav)fav(d.fav);
+  else if(d.q)setQ(d.q,+d.d);
+  else if(d.split!==undefined){st.split[d.split]=!t.checked;render();}
+  else if(d.list!==undefined){for(const[id,q]of Object.entries(st.lists[+d.list].items))st.cart[id]=(st.cart[id]||0)+q;st.tab='sacola';st.done=null;toast('Lista adicionada à sacola');render();}
+  else if('allfav'in d){st.favs.forEach(id=>st.cart[id]=(st.cart[id]||0)+1);toast('Favoritos na sacola');render();}
+  else if('savelist'in d){st.lists.push({name:`Lista ${st.lists.length+1}`,items:{...st.cart}});toast('Sacola salva em Favoritos');}
+  else if(d.go){st.tab=d.go;render();}
+  else if('new'in d){st.done=null;st.tab='inicio';render();}
+  else if('checkout'in d){const p=plan();if(p.blocked.length)return;
+    const orders=p.cl.flatMap(x=>x.c.map(id=>({s:id,eta:x.eta,mode:x.combined?'Entrega combinada':'Entrega própria'})));
+    st.done={orders,total:p.items+p.fees};st.cart={};st.split={};render();}
+});
+render();
+</script>
