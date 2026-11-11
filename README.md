@@ -4,6 +4,8 @@ Estudo de produto + protótipo navegável para um app de delivery: uma sacola qu
 
 > Projeto conceitual de portfólio, sem vínculo com nenhuma empresa. Lojas, preços e distâncias são fictícios.
 
+**▶️ [Ver o protótipo no ar](https://luizamiller.github.io/sacola-multiloja/)** (GitHub Pages)
+
 ## O problema
 
 Em apps de delivery, a sacola costuma aceitar apenas uma loja. Ao adicionar um item de outra loja, o usuário precisa descartar a sacola atual ou desistir do novo item. Isso gera:
