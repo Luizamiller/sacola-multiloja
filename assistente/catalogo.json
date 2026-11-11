@@ -1,0 +1,23 @@
+{
+  "_nota": "Mesmos dados fictícios do index.html, com dois campos a mais para o assistente: tipo e vegetariano.",
+  "lojas": [
+    {"id": "brasa", "nome": "Brasa Burger", "categoria": "Hambúrguer", "taxa": 6.99, "prazo": 35, "minimo": 25, "x": 0, "y": 0},
+    {"id": "mar", "nome": "Mar & Arroz", "categoria": "Poke · Japonesa", "taxa": 4.99, "prazo": 30, "minimo": 30, "x": 1.0, "y": 0.8},
+    {"id": "bem", "nome": "Farmácia Bem Viver", "categoria": "Farmácia", "taxa": 3.99, "prazo": 20, "minimo": 15, "x": 0.5, "y": -0.6},
+    {"id": "acai", "nome": "Açaí da Praça", "categoria": "Açaí · Sobremesas", "taxa": 5.49, "prazo": 25, "minimo": 20, "x": 3.6, "y": 2.4}
+  ],
+  "itens": [
+    {"id": "b1", "loja": "brasa", "nome": "Smash duplo", "descricao": "2 carnes, cheddar, cebola caramelizada", "preco": 32.9, "tipo": "prato", "vegetariano": false},
+    {"id": "b2", "loja": "brasa", "nome": "Batata rústica", "descricao": "Porção média com páprica", "preco": 16.9, "tipo": "acompanhamento", "vegetariano": true},
+    {"id": "b3", "loja": "brasa", "nome": "Brasa veggie", "descricao": "Grão-de-bico, picles, maionese verde", "preco": 29.9, "tipo": "prato", "vegetariano": true},
+    {"id": "m1", "loja": "mar", "nome": "Poke salmão", "descricao": "Arroz, salmão, manga, gergelim", "preco": 42.9, "tipo": "prato", "vegetariano": false},
+    {"id": "m2", "loja": "mar", "nome": "Poke tofu", "descricao": "Arroz integral, tofu grelhado, edamame", "preco": 34.9, "tipo": "prato", "vegetariano": true},
+    {"id": "m3", "loja": "mar", "nome": "Missoshiro", "descricao": "300 ml", "preco": 12.9, "tipo": "acompanhamento", "vegetariano": false},
+    {"id": "v1", "loja": "bem", "nome": "Protetor solar FPS 50", "descricao": "Frasco 120 ml", "preco": 54.9, "tipo": "farmacia", "vegetariano": null},
+    {"id": "v2", "loja": "bem", "nome": "Escova dental macia", "descricao": "Kit com 2", "preco": 13.9, "tipo": "farmacia", "vegetariano": null},
+    {"id": "v3", "loja": "bem", "nome": "Soro fisiológico", "descricao": "500 ml", "preco": 8.5, "tipo": "farmacia", "vegetariano": null},
+    {"id": "a1", "loja": "acai", "nome": "Açaí 500 ml", "descricao": "Banana, granola e leite em pó", "preco": 24.9, "tipo": "sobremesa", "vegetariano": true},
+    {"id": "a2", "loja": "acai", "nome": "Creme de cupuaçu", "descricao": "300 ml", "preco": 19.9, "tipo": "sobremesa", "vegetariano": true},
+    {"id": "a3", "loja": "acai", "nome": "Sorvete de tapioca", "descricao": "Pote 400 ml", "preco": 22.9, "tipo": "sobremesa", "vegetariano": true}
+  ]
+}
