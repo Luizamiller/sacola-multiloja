@@ -1,5 +1,7 @@
 # Sacola Multi-loja
 
+[![Testes](https://github.com/Luizamiller/sacola-multiloja/actions/workflows/testes.yml/badge.svg)](https://github.com/Luizamiller/sacola-multiloja/actions/workflows/testes.yml)
+
 Estudo de produto + protótipo navegável para um app de delivery: uma sacola que aceita itens de **várias lojas ao mesmo tempo**, com **entrega combinada** para lojas próximas e **pratos favoritos** reutilizáveis.
 
 > Projeto conceitual de portfólio, sem vínculo com nenhuma empresa. Lojas, preços e distâncias são fictícios.
@@ -35,13 +37,51 @@ Pagamento único; cada loja recebe só o seu pedido, então a operação do rest
 - **Cupom:** por loja.
 - **Cancelamento parcial:** se uma loja recusar, só aquele pedido é estornado.
 
-## Camada de IA (próximo passo)
+## Assistente de pedido com IA
 
-- **Assistente de pedido:** um LLM interpreta "jantar para 3 com sobremesa, até R$ 120" e devolve uma sacola montada a partir do cardápio, do histórico e dos favoritos.
-- **Sugestão de agrupamento:** avisar quando lojas da sacola podem sair juntas.
-- **Complemento inteligente:** sugerir loja próxima para o que falta (bebida, sobremesa).
+O cliente escreve o que quer — *"jantar para 3 com sobremesa, até R$ 130"* — e um agente com o **Claude** monta a sacola multi-loja, pronta para revisão. Código em [`assistente/`](assistente/).
 
-No protótipo essas sugestões são regras simples; a versão com LLM é o próximo passo.
+```mermaid
+flowchart LR
+    A[Pedido em<br/>linguagem natural] --> B[Claude]
+    B -->|buscar_itens| C[(Cardápio)]
+    B -->|simular_sacola| D[Regras de negócio<br/>regras.py]
+    D -->|total, prazo, problemas| B
+    B -->|finalizar_sacola| E{Validação}
+    E -->|problema| B
+    E -->|ok| F[Sacola para<br/>o cliente revisar]
+    B -->|impossível| G[Explica e sugere<br/>alternativa]
+```
+
+**Decisões de projeto**
+
+- **O LLM escolhe, o código calcula.** Preço, taxa combinada, prazo e pedido mínimo saem de `regras.py` — a mesma lógica do protótipo. O modelo nunca faz conta de cabeça.
+- **Ferramentas em vez de cardápio no prompt.** O modelo consulta o cardápio por `buscar_itens` e só pode usar o que vem de lá. Item inventado é barrado.
+- **Validação antes de entregar.** `finalizar_sacola` confere tudo de novo. Se a sacola estourar o orçamento, ficar abaixo do mínimo ou passar de 4 lojas, ela é **rejeitada** e o motivo volta para o modelo corrigir.
+- **Pode dizer "não dá".** "Pizza para 3" ou "jantar para 3 por R$ 60" não viram uma sacola qualquer: o assistente explica e sugere a alternativa mais próxima.
+- **Custo previsível.** Limite de 10 chamadas por pedido e contagem de tokens em cada execução.
+
+**Avaliação.** [`casos.json`](assistente/casos.json) tem 12 pedidos com as restrições reais de cada um (orçamento, nº de pratos, sobremesa, vegetariano, itens obrigatórios), incluindo 4 impossíveis. A nota é dada **por código, não por outro LLM**, e um teste confere por força bruta que o gabarito está certo (o que está marcado como impossível é impossível de verdade).
+
+| Métrica | Resultado |
+|---|---|
+| Casos atendidos corretamente | _a medir_ |
+| Sacolas barradas pela validação | _a medir_ |
+| Chamadas ao modelo por pedido (média) | _a medir_ |
+| Tokens por pedido (média) | _a medir_ |
+
+**Como rodar**
+
+```bash
+cd assistente
+pip install -r requirements.txt
+pytest -q                                   # testes, sem chave de API
+export ANTHROPIC_API_KEY=...
+python agente.py "jantar para 3 com sobremesa, até R$ 130"
+python avaliar.py                           # roda os 12 casos e salva em reports/
+```
+
+**Próximos passos:** usar favoritos e listas salvas como contexto ("o de sempre, mas para 4") e levar o assistente para dentro do protótipo.
 
 ## Métricas
 
