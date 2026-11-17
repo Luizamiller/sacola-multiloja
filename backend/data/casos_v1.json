@@ -1,0 +1,14 @@
+[
+  {"pedido": "Jantar para 3 com sobremesa, até R$ 130", "pratos_min": 3, "sobremesas_min": 1, "orcamento": 130, "impossivel": false},
+  {"pedido": "Jantar para 3 com sobremesa, gastando no máximo R$ 100", "pratos_min": 3, "sobremesas_min": 1, "orcamento": 100, "impossivel": true},
+  {"pedido": "Almoço vegetariano para 2 pessoas, até R$ 90", "pratos_min": 2, "vegetariano": true, "orcamento": 90, "impossivel": false},
+  {"pedido": "Jantar para 4, sem carne, até R$ 160", "pratos_min": 4, "vegetariano": true, "orcamento": 160, "impossivel": false},
+  {"pedido": "Quero um poke e um açaí de sobremesa", "um_de": [["m1", "m2"]], "deve_conter": ["a1"], "impossivel": false},
+  {"pedido": "Sobremesa para 3 pessoas", "sobremesas_min": 3, "impossivel": false},
+  {"pedido": "Preciso de soro fisiológico e escova de dente, e um hambúrguer pra mim", "pratos_min": 1, "deve_conter": ["v3", "v2"], "impossivel": false},
+  {"pedido": "Combo de hambúrguer com batata para 2", "pratos_min": 2, "deve_conter": ["b2"], "impossivel": false},
+  {"pedido": "Lanche para 2 pessoas gastando no máximo R$ 60", "pratos_min": 2, "orcamento": 60, "impossivel": true},
+  {"pedido": "Protetor solar e um açaí, até R$ 70", "deve_conter": ["v1"], "sobremesas_min": 1, "orcamento": 70, "impossivel": true},
+  {"pedido": "Pizza para 3 pessoas", "pratos_min": 3, "item_inexistente": "pizza", "impossivel": true},
+  {"pedido": "Um poke de salmão e um missoshiro, o mais rápido possível", "deve_conter": ["m1", "m3"], "impossivel": false}
+]

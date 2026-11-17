@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "@fontsource-variable/fredoka";
+@import "@fontsource-variable/nunito-sans";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * UMAMI — Design System (docs/umami/03-design-system.md)
+ * Vermelho = identidade · laranja = comprar (texto chocolate: 5,85:1) · queijo = ofertas
+ * creme = fundo das telas · branco = cartões (as fotos se destacam) · chocolate = texto.
+ * Contrastes medidos; estados nunca dependem só da cor.
+ */
+:root {
+  --paper: #fff3df;          /* creme */
+  --surface: #ffffff;
+  --sunken: #fbe8cc;
+  --ink: #43251f;            /* chocolate — 12,6:1 sobre creme */
+  --ink-2: #6b4a40;          /* 7,1:1 */
+  --ink-3: #7f5f55;          /* ~4,6:1 */
+  --line: #f1dcc0;
+  --line-strong: #e3c6a3;
+  --marca: #e94332;          /* tomate */
+  --marca-700: #c8321f;      /* texto vermelho sobre claro: 4,9:1 */
+  --accent: #ff8a24;         /* laranja de compra */
+  --accent-hover: #f57a12;   /* chocolate sobre ele: 5,0:1 */
+  --on-accent: #43251f;
+  --accent-ink: #c8321f;     /* links e destaques de texto */
+  --accent-wash: #ffe6c4;
+  --oferta: #ffc94a;         /* queijo */
+  --ok: #1f7a3e;             /* "Grátis", sucesso: 4,9:1 sobre creme */
+  --ok-wash: #e3f2e6;
+  --warn: #a6620a;
+  --warn-wash: #fff0d1;
+  --danger: #c8321f;
+  --danger-wash: #fde4df;
+  --sombra: 67 37 31;
+  color-scheme: light;
+}
+.dark {
+  --paper: #1c1210;
+  --surface: #261915;
+  --sunken: #2f201b;
+  --ink: #fff3df;
+  --ink-2: #d9bfb0;
+  --ink-3: #a88e82;
+  --line: #3a2822;
+  --line-strong: #4d362e;
+  --marca: #ff6b5a;
+  --marca-700: #ff8273;
+  --accent: #ff9a3c;
+  --accent-hover: #ffad5c;
+  --on-accent: #1c1210;
+  --accent-ink: #ff8273;
+  --accent-wash: #3d2716;
+  --oferta: #ffd36e;
+  --ok: #6ccb8a;
+  --ok-wash: #16271b;
+  --warn: #f2bb5c;
+  --warn-wash: #33240f;
+  --danger: #ff8273;
+  --danger-wash: #3a1b16;
+  --sombra: 0 0 0;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-marca: var(--marca);
+  --color-marca-700: var(--marca-700);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-wash: var(--accent-wash);
+  --color-oferta: var(--oferta);
+  --color-ok: var(--ok);
+  --color-ok-wash: var(--ok-wash);
+  --color-warn: var(--warn);
+  --color-warn-wash: var(--warn-wash);
+  --color-danger: var(--danger);
+  --color-danger-wash: var(--danger-wash);
+  --font-display: "Fredoka Variable", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --radius-control: 12px;
+  --radius-panel: 18px;
+  --shadow-flutuante: 0 18px 48px -18px rgb(var(--sombra) / 0.35);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body {
+    @apply bg-paper text-ink font-sans;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  ::selection { background: var(--accent-wash); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--marca-700); outline-offset: 2px; border-radius: 8px; }
+}
+
+@layer utilities {
+  .tnum { font-variant-numeric: tabular-nums; }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  /* Seigaiha: ondas japonesas em traço fino. Uso restrito a banners, splash e cartões especiais. */
+  .seigaiha {
+    --onda: rgb(255 243 223 / 0.18);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cg fill='none' stroke='%23FFF3DF' stroke-opacity='.22' stroke-width='1.2'%3E%3Cpath d='M0 24a24 24 0 0 1 48 0M6 24a18 18 0 0 1 36 0M12 24a12 12 0 0 1 24 0M18 24a6 6 0 0 1 12 0'/%3E%3Cpath d='M-24 12a24 24 0 0 1 48 0M-18 12a18 18 0 0 1 36 0M-12 12a12 12 0 0 1 24 0M-6 12a6 6 0 0 1 12 0M24 12a24 24 0 0 1 48 0M30 12a18 18 0 0 1 36 0M36 12a12 12 0 0 1 24 0M42 12a6 6 0 0 1 12 0'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 48px 24px;
+  }
+  .seigaiha-escura {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cg fill='none' stroke='%23C8321F' stroke-opacity='.14' stroke-width='1.2'%3E%3Cpath d='M0 24a24 24 0 0 1 48 0M6 24a18 18 0 0 1 36 0M12 24a12 12 0 0 1 24 0M18 24a6 6 0 0 1 12 0'/%3E%3Cpath d='M-24 12a24 24 0 0 1 48 0M-18 12a18 18 0 0 1 36 0M-12 12a12 12 0 0 1 24 0M-6 12a6 6 0 0 1 12 0M24 12a24 24 0 0 1 48 0M30 12a18 18 0 0 1 36 0M36 12a12 12 0 0 1 24 0M42 12a6 6 0 0 1 12 0'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 48px 24px;
+  }
+  /* Borda ornamental: faixa de ondas no topo de cartões especiais. */
+  .borda-onda { position: relative; overflow: hidden; }
+  .borda-onda::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 6px;
+    background: var(--marca);
+    -webkit-mask: radial-gradient(circle at 6px 6px, transparent 4px, #000 4.5px) 0 0 / 12px 6px;
+            mask: radial-gradient(circle at 6px 6px, transparent 4px, #000 4.5px) 0 0 / 12px 6px;
+  }
+}
+
+@keyframes respirar { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-3px) rotate(-1.5deg); } }
+.mascote-vivo { animation: respirar 3.2s ease-in-out infinite; transform-origin: 50% 80%; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,1068 @@
+{
+  "_nota": "Dados fictícios. As 4 lojas e os 12 itens com origem 'v1' são exatamente os do protótipo original e sustentam os 12 casos da avaliação; os demais ampliam o catálogo do app.",
+  "cliente": {
+    "endereco": "Rua Harmonia, 210 · Vila Madalena",
+    "x": 0.3,
+    "y": 0.1
+  },
+  "raio_entrega_km": 5.0,
+  "lojas": [
+    {
+      "id": "brasa",
+      "origem": "v1",
+      "nome": "Brasa Burger",
+      "categoria": "Hambúrguer",
+      "taxa": 6.99,
+      "prazo": 35,
+      "minimo": 25,
+      "x": 0,
+      "y": 0,
+      "aberta": true,
+      "nota": 4.7,
+      "cor": "#8A3B12",
+      "imagem": null
+    },
+    {
+      "id": "mar",
+      "origem": "v1",
+      "nome": "Mar & Arroz",
+      "categoria": "Poke · Japonesa",
+      "taxa": 4.99,
+      "prazo": 30,
+      "minimo": 30,
+      "x": 1.0,
+      "y": 0.8,
+      "aberta": true,
+      "nota": 4.8,
+      "cor": "#1F4E5F",
+      "imagem": null
+    },
+    {
+      "id": "bem",
+      "origem": "v1",
+      "nome": "Farmácia Bem Viver",
+      "categoria": "Farmácia",
+      "taxa": 3.99,
+      "prazo": 20,
+      "minimo": 15,
+      "x": 0.5,
+      "y": -0.6,
+      "aberta": true,
+      "nota": 4.9,
+      "cor": "#2F5D50",
+      "imagem": null
+    },
+    {
+      "id": "acai",
+      "origem": "v1",
+      "nome": "Açaí da Praça",
+      "categoria": "Açaí · Sobremesas",
+      "taxa": 5.49,
+      "prazo": 25,
+      "minimo": 20,
+      "x": 3.6,
+      "y": 2.4,
+      "aberta": true,
+      "nota": 4.6,
+      "cor": "#4B2A4F",
+      "imagem": null
+    },
+    {
+      "id": "nonna",
+      "origem": "v2",
+      "nome": "Cantina Nonna Lia",
+      "categoria": "Pizza · Massas",
+      "taxa": 7.49,
+      "prazo": 45,
+      "minimo": 40,
+      "x": -1.2,
+      "y": 0.9,
+      "aberta": true,
+      "nota": 4.7,
+      "cor": "#7A2E2E",
+      "imagem": null
+    },
+    {
+      "id": "horta",
+      "origem": "v2",
+      "nome": "Horta Viva",
+      "categoria": "Saladas · Vegano",
+      "taxa": 4.49,
+      "prazo": 25,
+      "minimo": 25,
+      "x": 0.8,
+      "y": -1.4,
+      "aberta": true,
+      "nota": 4.8,
+      "cor": "#3E5C2B",
+      "imagem": null
+    },
+    {
+      "id": "trigo",
+      "origem": "v2",
+      "nome": "Padaria Trigo Fino",
+      "categoria": "Padaria · Café",
+      "taxa": 3.49,
+      "prazo": 20,
+      "minimo": 12,
+      "x": -0.4,
+      "y": -0.9,
+      "aberta": true,
+      "nota": 4.6,
+      "cor": "#7D5A2C",
+      "imagem": null
+    },
+    {
+      "id": "esquina",
+      "origem": "v2",
+      "nome": "Mercado Esquina",
+      "categoria": "Mercado",
+      "taxa": 5.99,
+      "prazo": 30,
+      "minimo": 30,
+      "x": 1.6,
+      "y": -0.2,
+      "aberta": true,
+      "nota": 4.5,
+      "cor": "#33415C",
+      "imagem": null
+    },
+    {
+      "id": "flor",
+      "origem": "v2",
+      "nome": "Doceria Flor de Sal",
+      "categoria": "Doces · Bolos",
+      "taxa": 5.99,
+      "prazo": 30,
+      "minimo": 20,
+      "x": -1.8,
+      "y": -0.4,
+      "aberta": true,
+      "nota": 4.9,
+      "cor": "#8C4A5E",
+      "imagem": null
+    },
+    {
+      "id": "lumbre",
+      "origem": "v2",
+      "nome": "Taqueria Lumbre",
+      "categoria": "Mexicana",
+      "taxa": 6.49,
+      "prazo": 40,
+      "minimo": 30,
+      "x": 2.2,
+      "y": 1.6,
+      "aberta": false,
+      "abre_as": "18:00",
+      "nota": 4.7,
+      "cor": "#9A4B1C",
+      "imagem": null
+    },
+    {
+      "id": "serra",
+      "origem": "v2",
+      "nome": "Empório Serra",
+      "categoria": "Empório · Queijos",
+      "taxa": 9.99,
+      "prazo": 60,
+      "minimo": 50,
+      "x": 5.6,
+      "y": 3.2,
+      "aberta": true,
+      "nota": 4.8,
+      "cor": "#5B4636",
+      "imagem": null
+    }
+  ],
+  "itens": [
+    {
+      "id": "b1",
+      "loja": "brasa",
+      "nome": "Smash duplo",
+      "descricao": "2 carnes, cheddar, cebola caramelizada",
+      "preco": 32.9,
+      "tipo": "prato",
+      "vegetariano": false,
+      "tags": [
+        "hamburguer",
+        "burger",
+        "smash",
+        "lanche"
+      ],
+      "opcoes": [
+        {
+          "id": "ponto",
+          "nome": "Ponto da carne",
+          "min": 1,
+          "max": 1,
+          "itens": [
+            {
+              "id": "ao_ponto",
+              "nome": "Ao ponto",
+              "preco": 0
+            },
+            {
+              "id": "mal",
+              "nome": "Mal passado",
+              "preco": 0
+            },
+            {
+              "id": "bem",
+              "nome": "Bem passado",
+              "preco": 0
+            }
+          ]
+        },
+        {
+          "id": "extras",
+          "nome": "Turbine seu lanche",
+          "min": 0,
+          "max": 3,
+          "itens": [
+            {
+              "id": "bacon",
+              "nome": "Bacon crocante",
+              "preco": 4.5
+            },
+            {
+              "id": "cheddar",
+              "nome": "Cheddar extra",
+              "preco": 3.5
+            },
+            {
+              "id": "ovo",
+              "nome": "Ovo",
+              "preco": 2.5
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "b2",
+      "loja": "brasa",
+      "nome": "Batata rústica",
+      "descricao": "Porção média com páprica",
+      "preco": 16.9,
+      "tipo": "acompanhamento",
+      "vegetariano": true,
+      "tags": [
+        "batata",
+        "fritas"
+      ],
+      "opcoes": [
+        {
+          "id": "molho",
+          "nome": "Molho",
+          "min": 1,
+          "max": 1,
+          "itens": [
+            {
+              "id": "maionese_verde",
+              "nome": "Maionese verde",
+              "preco": 0
+            },
+            {
+              "id": "barbecue",
+              "nome": "Barbecue",
+              "preco": 0
+            },
+            {
+              "id": "cheddar",
+              "nome": "Cheddar cremoso",
+              "preco": 3.0
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "b3",
+      "loja": "brasa",
+      "nome": "Brasa veggie",
+      "descricao": "Grão-de-bico, picles, maionese verde",
+      "preco": 29.9,
+      "tipo": "prato",
+      "vegetariano": true,
+      "tags": [
+        "hamburguer",
+        "burger",
+        "veggie",
+        "lanche"
+      ],
+      "opcoes": [
+        {
+          "id": "extras",
+          "nome": "Adicionais",
+          "min": 0,
+          "max": 2,
+          "itens": [
+            {
+              "id": "queijo_vegano",
+              "nome": "Queijo vegetal",
+              "preco": 4.0
+            },
+            {
+              "id": "picles",
+              "nome": "Picles extra",
+              "preco": 1.5
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "b4",
+      "loja": "brasa",
+      "nome": "Limonada da casa",
+      "descricao": "500 ml, hortelã",
+      "preco": 9.9,
+      "tipo": "bebida",
+      "vegetariano": true,
+      "origem": "v2",
+      "tags": [
+        "limonada",
+        "suco",
+        "bebida"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "m1",
+      "loja": "mar",
+      "nome": "Poke salmão",
+      "descricao": "Arroz, salmão, manga, gergelim",
+      "preco": 42.9,
+      "tipo": "prato",
+      "vegetariano": false,
+      "tags": [
+        "poke",
+        "poke de salmao",
+        "poke salmao",
+        "salmao"
+      ],
+      "opcoes": [
+        {
+          "id": "base",
+          "nome": "Base",
+          "min": 1,
+          "max": 1,
+          "itens": [
+            {
+              "id": "arroz",
+              "nome": "Arroz japonês",
+              "preco": 0
+            },
+            {
+              "id": "integral",
+              "nome": "Arroz integral",
+              "preco": 0
+            },
+            {
+              "id": "folhas",
+              "nome": "Mix de folhas",
+              "preco": 0
+            }
+          ]
+        },
+        {
+          "id": "extras",
+          "nome": "Extras",
+          "min": 0,
+          "max": 2,
+          "itens": [
+            {
+              "id": "salmao",
+              "nome": "Salmão extra",
+              "preco": 9.0
+            },
+            {
+              "id": "cream",
+              "nome": "Cream cheese",
+              "preco": 3.0
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "m2",
+      "loja": "mar",
+      "nome": "Poke tofu",
+      "descricao": "Arroz integral, tofu grelhado, edamame",
+      "preco": 34.9,
+      "tipo": "prato",
+      "vegetariano": true,
+      "tags": [
+        "poke",
+        "poke de tofu",
+        "poke tofu",
+        "tofu"
+      ],
+      "opcoes": [
+        {
+          "id": "base",
+          "nome": "Base",
+          "min": 1,
+          "max": 1,
+          "itens": [
+            {
+              "id": "integral",
+              "nome": "Arroz integral",
+              "preco": 0
+            },
+            {
+              "id": "folhas",
+              "nome": "Mix de folhas",
+              "preco": 0
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "m3",
+      "loja": "mar",
+      "nome": "Missoshiro",
+      "descricao": "300 ml",
+      "preco": 12.9,
+      "tipo": "acompanhamento",
+      "vegetariano": false,
+      "tags": [
+        "missoshiro",
+        "sopa"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "m4",
+      "loja": "mar",
+      "nome": "Combinado 16 peças",
+      "descricao": "Sashimi, uramaki e niguiri do dia",
+      "preco": 58.9,
+      "tipo": "prato",
+      "vegetariano": false,
+      "origem": "v2",
+      "tags": [
+        "sushi",
+        "combinado",
+        "japonesa"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "v1",
+      "loja": "bem",
+      "nome": "Protetor solar FPS 50",
+      "descricao": "Frasco 120 ml",
+      "preco": 54.9,
+      "tipo": "farmacia",
+      "vegetariano": null,
+      "tags": [
+        "protetor",
+        "protetor solar",
+        "filtro solar"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "v2",
+      "loja": "bem",
+      "nome": "Escova dental macia",
+      "descricao": "Kit com 2",
+      "preco": 13.9,
+      "tipo": "farmacia",
+      "vegetariano": null,
+      "tags": [
+        "escova",
+        "escova de dente",
+        "escova dental"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "v3",
+      "loja": "bem",
+      "nome": "Soro fisiológico",
+      "descricao": "500 ml",
+      "preco": 8.5,
+      "tipo": "farmacia",
+      "vegetariano": null,
+      "tags": [
+        "soro",
+        "soro fisiologico"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "v4",
+      "loja": "bem",
+      "nome": "Termômetro digital",
+      "descricao": "Ponta flexível",
+      "preco": 29.9,
+      "tipo": "farmacia",
+      "vegetariano": null,
+      "origem": "v2",
+      "disponivel": false,
+      "tags": [
+        "termometro"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "a1",
+      "loja": "acai",
+      "nome": "Açaí 500 ml",
+      "descricao": "Banana, granola e leite em pó",
+      "preco": 24.9,
+      "tipo": "sobremesa",
+      "vegetariano": true,
+      "tags": [
+        "acai"
+      ],
+      "opcoes": [
+        {
+          "id": "complementos",
+          "nome": "Complementos",
+          "min": 0,
+          "max": 3,
+          "itens": [
+            {
+              "id": "morango",
+              "nome": "Morango",
+              "preco": 3.0
+            },
+            {
+              "id": "leite_ninho",
+              "nome": "Leite em pó extra",
+              "preco": 2.0
+            },
+            {
+              "id": "pacoca",
+              "nome": "Paçoca",
+              "preco": 2.0
+            },
+            {
+              "id": "nutella",
+              "nome": "Creme de avelã",
+              "preco": 5.0
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "a2",
+      "loja": "acai",
+      "nome": "Creme de cupuaçu",
+      "descricao": "300 ml",
+      "preco": 19.9,
+      "tipo": "sobremesa",
+      "vegetariano": true,
+      "tags": [
+        "cupuacu",
+        "creme de cupuacu"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "a3",
+      "loja": "acai",
+      "nome": "Sorvete de tapioca",
+      "descricao": "Pote 400 ml",
+      "preco": 22.9,
+      "tipo": "sobremesa",
+      "vegetariano": true,
+      "tags": [
+        "sorvete",
+        "tapioca"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "n1",
+      "loja": "nonna",
+      "nome": "Pizza margherita",
+      "descricao": "Média, 6 fatias · tomate, muçarela, manjericão",
+      "preco": 49.9,
+      "tipo": "prato",
+      "vegetariano": true,
+      "serve": 2,
+      "tags": [
+        "pizza",
+        "margherita"
+      ],
+      "opcoes": [
+        {
+          "id": "borda",
+          "nome": "Borda",
+          "min": 1,
+          "max": 1,
+          "itens": [
+            {
+              "id": "tradicional",
+              "nome": "Tradicional",
+              "preco": 0
+            },
+            {
+              "id": "catupiry",
+              "nome": "Recheada com requeijão",
+              "preco": 8.0
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "n2",
+      "loja": "nonna",
+      "nome": "Pizza calabresa",
+      "descricao": "Média, 6 fatias · calabresa artesanal e cebola roxa",
+      "preco": 54.9,
+      "tipo": "prato",
+      "vegetariano": false,
+      "serve": 2,
+      "tags": [
+        "pizza",
+        "calabresa"
+      ],
+      "opcoes": [
+        {
+          "id": "borda",
+          "nome": "Borda",
+          "min": 1,
+          "max": 1,
+          "itens": [
+            {
+              "id": "tradicional",
+              "nome": "Tradicional",
+              "preco": 0
+            },
+            {
+              "id": "catupiry",
+              "nome": "Recheada com requeijão",
+              "preco": 8.0
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "n3",
+      "loja": "nonna",
+      "nome": "Lasanha bolonhesa",
+      "descricao": "Individual, 450 g",
+      "preco": 38.9,
+      "tipo": "prato",
+      "vegetariano": false,
+      "tags": [
+        "lasanha",
+        "massa"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "n4",
+      "loja": "nonna",
+      "nome": "Tiramisù",
+      "descricao": "Porção individual",
+      "preco": 21.9,
+      "tipo": "sobremesa",
+      "vegetariano": true,
+      "tags": [
+        "tiramisu"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "h1",
+      "loja": "horta",
+      "nome": "Salada grão & folhas",
+      "descricao": "Mix de folhas, grão-de-bico tostado, tahine",
+      "preco": 31.9,
+      "tipo": "prato",
+      "vegetariano": true,
+      "tags": [
+        "salada",
+        "salada vegana",
+        "vegano"
+      ],
+      "opcoes": [
+        {
+          "id": "molho",
+          "nome": "Molho",
+          "min": 1,
+          "max": 1,
+          "itens": [
+            {
+              "id": "tahine",
+              "nome": "Tahine",
+              "preco": 0
+            },
+            {
+              "id": "mostarda",
+              "nome": "Mostarda e mel",
+              "preco": 0
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "h2",
+      "loja": "horta",
+      "nome": "Bowl de quinoa",
+      "descricao": "Quinoa, abóbora assada, castanhas",
+      "preco": 36.9,
+      "tipo": "prato",
+      "vegetariano": true,
+      "tags": [
+        "bowl",
+        "quinoa",
+        "vegano"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "h3",
+      "loja": "horta",
+      "nome": "Suco verde",
+      "descricao": "400 ml · couve, maçã e gengibre",
+      "preco": 12.9,
+      "tipo": "bebida",
+      "vegetariano": true,
+      "tags": [
+        "suco",
+        "suco verde",
+        "bebida"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "t1",
+      "loja": "trigo",
+      "nome": "Pão de fermentação natural",
+      "descricao": "Inteiro, 600 g",
+      "preco": 18.9,
+      "tipo": "mercado",
+      "vegetariano": true,
+      "tags": [
+        "pao",
+        "pao de fermentacao"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "t2",
+      "loja": "trigo",
+      "nome": "Croissant de manteiga",
+      "descricao": "Unidade",
+      "preco": 9.5,
+      "tipo": "acompanhamento",
+      "vegetariano": true,
+      "tags": [
+        "croissant"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "t3",
+      "loja": "trigo",
+      "nome": "Café coado",
+      "descricao": "300 ml",
+      "preco": 7.9,
+      "tipo": "bebida",
+      "vegetariano": true,
+      "tags": [
+        "cafe",
+        "cafe coado",
+        "bebida"
+      ],
+      "opcoes": [
+        {
+          "id": "leite",
+          "nome": "Leite",
+          "min": 0,
+          "max": 1,
+          "itens": [
+            {
+              "id": "integral",
+              "nome": "Leite integral",
+              "preco": 1.5
+            },
+            {
+              "id": "aveia",
+              "nome": "Bebida de aveia",
+              "preco": 2.5
+            }
+          ]
+        }
+      ],
+      "imagem": null
+    },
+    {
+      "id": "e1",
+      "loja": "esquina",
+      "nome": "Leite integral",
+      "descricao": "1 litro",
+      "preco": 6.49,
+      "tipo": "mercado",
+      "vegetariano": true,
+      "tags": [
+        "leite"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "e2",
+      "loja": "esquina",
+      "nome": "Ovos caipiras",
+      "descricao": "Bandeja com 12",
+      "preco": 17.9,
+      "tipo": "mercado",
+      "vegetariano": true,
+      "tags": [
+        "ovos",
+        "ovo"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "e3",
+      "loja": "esquina",
+      "nome": "Água com gás",
+      "descricao": "Pack com 6 · 500 ml",
+      "preco": 14.9,
+      "tipo": "bebida",
+      "vegetariano": true,
+      "tags": [
+        "agua",
+        "agua com gas",
+        "bebida"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "e4",
+      "loja": "esquina",
+      "nome": "Café em grãos",
+      "descricao": "250 g · torra média",
+      "preco": 32.9,
+      "tipo": "mercado",
+      "vegetariano": true,
+      "tags": [
+        "cafe em graos"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "f1",
+      "loja": "flor",
+      "nome": "Caixa de brigadeiros",
+      "descricao": "6 unidades · belga 54%",
+      "preco": 24.9,
+      "tipo": "sobremesa",
+      "vegetariano": true,
+      "tags": [
+        "brigadeiro",
+        "brigadeiros",
+        "doce"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "f2",
+      "loja": "flor",
+      "nome": "Fatia de bolo de cenoura",
+      "descricao": "Com cobertura de chocolate",
+      "preco": 16.9,
+      "tipo": "sobremesa",
+      "vegetariano": true,
+      "tags": [
+        "bolo",
+        "bolo de cenoura"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "l1",
+      "loja": "lumbre",
+      "nome": "Tacos al pastor",
+      "descricao": "3 unidades · porco, abacaxi, coentro",
+      "preco": 36.9,
+      "tipo": "prato",
+      "vegetariano": false,
+      "tags": [
+        "taco",
+        "tacos"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "l2",
+      "loja": "lumbre",
+      "nome": "Burrito de feijão",
+      "descricao": "Feijão, arroz, guacamole",
+      "preco": 33.9,
+      "tipo": "prato",
+      "vegetariano": true,
+      "tags": [
+        "burrito"
+      ],
+      "imagem": null
+    },
+    {
+      "id": "s1",
+      "loja": "serra",
+      "nome": "Tábua de queijos",
+      "descricao": "4 queijos da Mantiqueira, geleia",
+      "preco": 89.9,
+      "tipo": "prato",
+      "vegetariano": true,
+      "serve": 2,
+      "tags": [
+        "queijo",
+        "queijos",
+        "tabua"
+      ],
+      "imagem": null
+    }
+  ],
+  "cupons": [
+    {
+      "codigo": "BEMVINDO",
+      "descricao": "R$ 10 de desconto em pedidos a partir de R$ 50",
+      "tipo": "valor",
+      "valor": 10,
+      "minimo": 50,
+      "loja": null
+    },
+    {
+      "codigo": "BRASA15",
+      "descricao": "15% na Brasa Burger (até R$ 12) a partir de R$ 40",
+      "tipo": "percentual",
+      "valor": 15,
+      "maximo": 12,
+      "minimo": 40,
+      "loja": "brasa"
+    },
+    {
+      "codigo": "ENTREGAUMAMI",
+      "descricao": "Entrega grátis em pedidos a partir de R$ 80",
+      "tipo": "entrega",
+      "valor": 0,
+      "minimo": 80,
+      "loja": null
+    },
+    {
+      "codigo": "ACAI5",
+      "descricao": "R$ 5 no Açaí da Praça a partir de R$ 30",
+      "tipo": "valor",
+      "valor": 5,
+      "minimo": 30,
+      "loja": "acai"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "lanches",
+      "nome": "Lanches",
+      "icone": "sandwich",
+      "cor": "#FFD9A8",
+      "lojas": [
+        "brasa"
+      ]
+    },
+    {
+      "id": "japonesa",
+      "nome": "Japonesa",
+      "icone": "fish",
+      "cor": "#FFC9BE",
+      "lojas": [
+        "mar"
+      ]
+    },
+    {
+      "id": "pizza",
+      "nome": "Pizza",
+      "icone": "pizza",
+      "cor": "#FFE29A",
+      "lojas": [
+        "nonna"
+      ]
+    },
+    {
+      "id": "saudavel",
+      "nome": "Saudável",
+      "icone": "salad",
+      "cor": "#D6EFC9",
+      "lojas": [
+        "horta"
+      ]
+    },
+    {
+      "id": "acai",
+      "nome": "Açaí",
+      "icone": "cup-soda",
+      "cor": "#E9D2F4",
+      "lojas": [
+        "acai"
+      ]
+    },
+    {
+      "id": "doces",
+      "nome": "Doces",
+      "icone": "cake-slice",
+      "cor": "#FFD6E0",
+      "lojas": [
+        "flor"
+      ]
+    },
+    {
+      "id": "padaria",
+      "nome": "Padaria",
+      "icone": "croissant",
+      "cor": "#F7DFC0",
+      "lojas": [
+        "trigo"
+      ]
+    },
+    {
+      "id": "mexicana",
+      "nome": "Mexicana",
+      "icone": "flame",
+      "cor": "#FFCFAE",
+      "lojas": [
+        "lumbre"
+      ]
+    },
+    {
+      "id": "mercado",
+      "nome": "Mercado",
+      "icone": "shopping-basket",
+      "cor": "#CFE6F2",
+      "lojas": [
+        "esquina",
+        "serra"
+      ]
+    },
+    {
+      "id": "farmacia",
+      "nome": "Farmácia",
+      "icone": "pill",
+      "cor": "#D2EFE6",
+      "lojas": [
+        "bem"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment: { POSTGRES_USER: sacola, POSTGRES_PASSWORD: sacola, POSTGRES_DB: sacola }
+    volumes: [dados:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U sacola"], interval: 5s, retries: 10 }
+  app:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://sacola:sacola@db:5432/sacola
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      CORS_ORIGINS: '["http://localhost:8000"]'
+    depends_on: { db: { condition: service_healthy } }
+volumes:
+  dados:

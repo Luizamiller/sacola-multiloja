@@ -1,0 +1,14 @@
+[
+  {"pedido": "Pizza para 3 pessoas", "pratos_min": 3, "um_de": [["n1", "n2"]], "impossivel": false},
+  {"pedido": "Salada vegana para 2 e dois sucos, até R$ 110", "pratos_min": 2, "vegetariano": true, "deve_conter": ["h1"], "bebidas_min": 2, "orcamento": 110, "impossivel": false},
+  {"pedido": "Tacos para 2", "pratos_min": 2, "impossivel": true, "motivo": "loja_fechada", "loja": "lumbre"},
+  {"pedido": "Uma caixa de brigadeiros e um poke de tofu", "deve_conter": ["f1", "m2"], "impossivel": false},
+  {"pedido": "Jantar para 2 com sobremesa, até R$ 50", "pratos_min": 2, "sobremesas_min": 1, "orcamento": 50, "impossivel": true, "motivo": "orcamento"},
+  {"pedido": "Leite, ovos e um pão de fermentação natural", "deve_conter": ["e1", "e2", "t1"], "impossivel": false},
+  {"pedido": "Hambúrguer, pizza, poke, açaí e salada", "impossivel": true, "motivo": "limite_lojas", "lojas_exigidas": ["brasa", "nonna", "mar", "acai", "horta"]},
+  {"pedido": "Sushi para 2 com missoshiro", "um_de": [["m4"]], "deve_conter": ["m3"], "impossivel": false},
+  {"pedido": "Lasanha e tiramisù para 1, o mais rápido possível", "deve_conter": ["n3", "n4"], "impossivel": false},
+  {"pedido": "Tábua de queijos do empório", "impossivel": true, "motivo": "fora_da_area", "loja": "serra"},
+  {"pedido": "Termômetro digital e soro fisiológico", "impossivel": true, "motivo": "indisponivel", "item": "v4"},
+  {"pedido": "Café coado e dois croissants", "deve_conter": ["t3", "t2"], "impossivel": false}
+]

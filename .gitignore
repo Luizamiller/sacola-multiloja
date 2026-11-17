@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+backend/.venv/
+backend/*.db
+backend/.env
+.pytest_cache/
+.ruff_cache/
+
+# Web
+web/node_modules/
+web/dist/
+web/test-results/
+web/playwright-report/
+*.tsbuildinfo
+
+.DS_Store
+
+# capturas do iFood: só para análise local, não publicar (marcas de terceiros)
+docs/umami/referencias/ifood-*

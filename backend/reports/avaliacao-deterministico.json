@@ -1,0 +1,419 @@
+{
+  "resumo": {
+    "motor": "deterministico",
+    "casos": 24,
+    "acertos": 24,
+    "taxa_acerto": 1.0,
+    "por_suite": {
+      "v1": "12/12",
+      "v2": "12/12"
+    },
+    "sacolas_rejeitadas_pela_validacao": 0,
+    "media_ms": 2,
+    "media_tokens_entrada": 0,
+    "media_tokens_saida": 0
+  },
+  "casos": [
+    {
+      "suite": "v1",
+      "pedido": "Jantar para 3 com sobremesa, até R$ 130",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "b3": 2,
+        "b1": 1,
+        "a3": 1
+      },
+      "total": 128.08,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 1
+    },
+    {
+      "suite": "v1",
+      "pedido": "Jantar para 3 com sobremesa, gastando no máximo R$ 100",
+      "ok": true,
+      "falhas": [],
+      "sacola": null,
+      "total": null,
+      "motivos": [
+        "A combinação mais barata que atende custa R$ 128.08 com entrega, acima do orçamento de R$ 100.00."
+      ],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 1
+    },
+    {
+      "suite": "v1",
+      "pedido": "Almoço vegetariano para 2 pessoas, até R$ 90",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "b3": 2
+      },
+      "total": 66.79,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 1
+    },
+    {
+      "suite": "v1",
+      "pedido": "Jantar para 4, sem carne, até R$ 160",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "b3": 4
+      },
+      "total": 126.59,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 1
+    },
+    {
+      "suite": "v1",
+      "pedido": "Quero um poke e um açaí de sobremesa",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "m2": 1,
+        "a1": 1
+      },
+      "total": 70.28,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v1",
+      "pedido": "Sobremesa para 3 pessoas",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "a2": 2,
+        "a3": 1
+      },
+      "total": 68.19,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v1",
+      "pedido": "Preciso de soro fisiológico e escova de dente, e um hambúrguer pra mim",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "v3": 1,
+        "v2": 1,
+        "b3": 1
+      },
+      "total": 61.28,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v1",
+      "pedido": "Combo de hambúrguer com batata para 2",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "b3": 1,
+        "b1": 1,
+        "b2": 1
+      },
+      "total": 86.69,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v1",
+      "pedido": "Lanche para 2 pessoas gastando no máximo R$ 60",
+      "ok": true,
+      "falhas": [],
+      "sacola": null,
+      "total": null,
+      "motivos": [
+        "A combinação mais barata que atende custa R$ 69.79 com entrega, acima do orçamento de R$ 60.00."
+      ],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 1
+    },
+    {
+      "suite": "v1",
+      "pedido": "Protetor solar e um açaí, até R$ 70",
+      "ok": true,
+      "falhas": [],
+      "sacola": null,
+      "total": null,
+      "motivos": [
+        "A combinação mais barata que atende custa R$ 89.28 com entrega, acima do orçamento de R$ 70.00."
+      ],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 1
+    },
+    {
+      "suite": "v1",
+      "pedido": "Pizza para 3 pessoas",
+      "ok": true,
+      "falhas": [],
+      "sacola": null,
+      "total": null,
+      "motivos": [
+        "Não há pizza em nenhuma loja do cardápio."
+      ],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v1",
+      "pedido": "Um poke de salmão e um missoshiro, o mais rápido possível",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "m1": 1,
+        "m3": 1
+      },
+      "total": 60.79,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v2",
+      "pedido": "Pizza para 3 pessoas",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "n1": 2
+      },
+      "total": 107.29,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 4
+    },
+    {
+      "suite": "v2",
+      "pedido": "Salada vegana para 2 e dois sucos, até R$ 110",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "h1": 2,
+        "h3": 2
+      },
+      "total": 94.09,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 4
+    },
+    {
+      "suite": "v2",
+      "pedido": "Tacos para 2",
+      "ok": true,
+      "falhas": [],
+      "sacola": null,
+      "total": null,
+      "motivos": [
+        "Tacos: Taqueria Lumbre está fechada agora (abre às 18:00)."
+      ],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v2",
+      "pedido": "Uma caixa de brigadeiros e um poke de tofu",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "m2": 1,
+        "f1": 1
+      },
+      "total": 70.78,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 1
+    },
+    {
+      "suite": "v2",
+      "pedido": "Jantar para 2 com sobremesa, até R$ 50",
+      "ok": true,
+      "falhas": [],
+      "sacola": null,
+      "total": null,
+      "motivos": [
+        "A combinação mais barata que atende custa R$ 79.29 com entrega, acima do orçamento de R$ 50.00."
+      ],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 20
+    },
+    {
+      "suite": "v2",
+      "pedido": "Leite, ovos e um pão de fermentação natural",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "t1": 1,
+        "e1": 2,
+        "e2": 1
+      },
+      "total": 59.26,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 2
+    },
+    {
+      "suite": "v2",
+      "pedido": "Hambúrguer, pizza, poke, açaí e salada",
+      "ok": true,
+      "falhas": [],
+      "sacola": null,
+      "total": null,
+      "motivos": [
+        "O pedido exige 5 lojas diferentes; a sacola aceita até 4."
+      ],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v2",
+      "pedido": "Sushi para 2 com missoshiro",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "m3": 2,
+        "m4": 2
+      },
+      "total": 148.59,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 3
+    },
+    {
+      "suite": "v2",
+      "pedido": "Lasanha e tiramisù para 1, o mais rápido possível",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "n4": 1,
+        "n3": 1
+      },
+      "total": 68.29,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 4
+    },
+    {
+      "suite": "v2",
+      "pedido": "Tábua de queijos do empório",
+      "ok": true,
+      "falhas": [],
+      "sacola": null,
+      "total": null,
+      "motivos": [
+        "Queijos: Empório Serra fica a 6.1 km, fora da área de entrega (5 km).",
+        "Tabua: Empório Serra fica a 6.1 km, fora da área de entrega (5 km)."
+      ],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v2",
+      "pedido": "Termômetro digital e soro fisiológico",
+      "ok": true,
+      "falhas": [],
+      "sacola": null,
+      "total": null,
+      "motivos": [
+        "Termometro: Termômetro digital está indisponível no momento."
+      ],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 0
+    },
+    {
+      "suite": "v2",
+      "pedido": "Café coado e dois croissants",
+      "ok": true,
+      "falhas": [],
+      "sacola": {
+        "t3": 1,
+        "t2": 2
+      },
+      "total": 30.39,
+      "motivos": [],
+      "passos": 0,
+      "rejeicoes": 0,
+      "tokens_entrada": 0,
+      "tokens_saida": 0,
+      "ms": 3
+    }
+  ]
+}
